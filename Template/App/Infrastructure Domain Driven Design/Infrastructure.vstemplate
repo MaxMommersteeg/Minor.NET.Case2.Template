@@ -1,0 +1,33 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Infrastructure Domain Driven Design</Name>
+    <Description>Infrastructure part of Domain Driven Design Backend Microservice</Description>
+    <ProjectType>DNX</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Infrastructure Domain Driven Design</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Infrastructure Template.xproj" File="Infrastructure Template.xproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="DAL" TargetFolderName="DAL">
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseRepository.cs">BaseRepository.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="EntityRepository.cs">EntityRepository.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IRepository.cs">IRepository.cs</ProjectItem>
+      </Folder>
+      <Folder Name="DatabaseContexts" TargetFolderName="DatabaseContexts">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseContext.cs">DatabaseContext.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="project.json">project.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="project.lock.json">project.lock.json</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
