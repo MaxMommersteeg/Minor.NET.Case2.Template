@@ -1,0 +1,68 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>Microservice Backend Domain Driven</Name>
+    <Description>Contains Domain Driven Microservice template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>DNX</ProjectSubType>
+    <DefaultName>Case2.EIGENNAAM.APPLICATIENAAM</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <CreateNewFolder>true</CreateNewFolder>
+    <CreateInPlace>true</CreateInPlace>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder CreateOnDisk="true" Name="src">
+        <SolutionFolder CreateOnDisk="true" Name="Domain">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.001 - Domain">
+            App\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+        <SolutionFolder CreateOnDisk="true" Name="Infrastructure">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.002 - Infrastructure">
+            App\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+        <SolutionFolder CreateOnDisk="true" Name="Facade">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.003 - Facade">
+            App\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+        <SolutionFolder CreateOnDisk="true" Name="Incoming">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.004 - Incoming">
+            App\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+        <SolutionFolder CreateOnDisk="true" Name="Outgoing">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.005 - Outgoing">
+            App\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+      </SolutionFolder>
+      <SolutionFolder CreateOnDisk="true" Name="test">
+        <SolutionFolder CreateOnDisk="true" Name="Domain.Test">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.001 - Domain.Test">
+            Test\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+        <SolutionFolder CreateOnDisk="true" Name="Infrastructure.Test">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.002 - Infrastructure.Test">
+            Test\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+        <SolutionFolder CreateOnDisk="true" Name="Facade.Test">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.003 - Facade.Test">
+            Test\NetCoreConsoleApp.vstemplate
+          </ProjectTemplateLink>
+        </SolutionFolder>
+      </SolutionFolder>
+      <SolutionFolder CreateOnDisk="true" Name="Integration.Test">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Integration.Test">
+          Test\NetCoreConsoleApp.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>
