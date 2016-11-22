@@ -5,6 +5,9 @@ using System.Net;
 using Minor.Dag39.GamesBackend.Services;
 using Minor.Dag39.GamesBackend.Entities;
 using Minor.Dag39.GamesBackend.Outgoing;
+using Minor.Dag39.GamesBackend.Incoming.Commands;
+using Minor.Dag39.GamesBackend.WebApi.Errors;
+using Microsoft.EntityFrameworkCore;
 
 namespace Minor.Dag39.GamesBackend.WebApi.Controllers
 {
@@ -22,28 +25,58 @@ namespace Minor.Dag39.GamesBackend.WebApi.Controllers
         [HttpPost]        
         [SwaggerOperation("Post")]
         [ProducesResponseType(typeof(Room), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(Room), (int)HttpStatusCode.BadRequest)]
-        public IActionResult CreateGame([FromBody]Room room)
+        [ProducesResponseType(typeof(ErrorMessage), (int)HttpStatusCode.BadRequest)]
+        public IActionResult CreateGame([FromBody]CreateRoomCommand createCommand)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return Ok();
+                var error = new ErrorMessage(ErrorTypes.BadRequest, "Modelstate Invalide");
+                return BadRequest(error);
             }
-            return BadRequest(room);
+                try
+                {
+                    var room = _service.StartGame(createCommand);
+                    return Ok(room);
+                }
+                catch (Exception)
+                {
+                    var error = new ErrorMessage(ErrorTypes.Unknown,
+                        $"Onbekende fout met volgende Command: RoomName:{createCommand.RoomName}, CommandId:{createCommand.CommandId}, TimeStamp:{createCommand.Timestamp}");
+                    return BadRequest(error);
+                }
+
+
         }
 
         // PUT api/values/5
         [HttpPut]
         [SwaggerOperation("Update")]
         [ProducesResponseType(typeof(Room), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(Room), (int)HttpStatusCode.BadRequest)]
-        public IActionResult EndGame([FromBody]Room room)
+        [ProducesResponseType(typeof(ErrorMessage), (int)HttpStatusCode.BadRequest)]
+        public IActionResult EndGame([FromBody]EndGameCommand endCommand)
         {
             if (ModelState.IsValid)
             {
-                return Ok();
+                var error = new ErrorMessage(ErrorTypes.BadRequest, "Modelstate Invalide");
+                return BadRequest(error);
             }
-            return BadRequest(room);
+            try
+            {
+                var room = _service.EndGame(endCommand);
+                return Ok(room);
+            }
+            catch (DbUpdateException)
+            {
+                var error = new ErrorMessage(ErrorTypes.NotFound,
+                        $"Fout met updaten game met volgende Command: RoomName:{endCommand.RoomName}, CommandId:{endCommand.CommandId}, TimeStamp:{endCommand.Timestamp}");
+                return NotFound(error);
+            }
+            catch (Exception)
+            {
+                var error = new ErrorMessage(ErrorTypes.Unknown,
+                        $"Onbekende fout met volgende Command: RoomName:{endCommand.RoomName}, CommandId:{endCommand.CommandId}, TimeStamp:{endCommand.Timestamp}");
+                return BadRequest(error);
+            }
         }
         protected override void Dispose(bool disposing)
         {
