@@ -1,16 +1,11 @@
 ﻿using System;
-using Minor.Dag39.GamesBackend.DAL;
 using Minor.Dag39.GamesBackend.Entities;
-using Minor.Dag39.GamesBackend.Outgoing;
-using Minor.Dag39.GamesBackend.Incoming;
 using Minor.Dag39.GamesBackend.DAL.Repositories;
 using Minor.Dag39.GamesBackend.Incoming.Commands;
 using Minor.WSA.Commons;
-using Minor.WSA.EventBus.Publisher;
 using Minor.Dag39.GamesBackend.Outgoing.Events;
 
-namespace Minor.Dag39.GamesBackend.Services
-{
+namespace Minor.Dag39.GamesBackend.Services {
     public class RoomService : IDisposable
     {
         private readonly IRepository<Room, int> _repository;
