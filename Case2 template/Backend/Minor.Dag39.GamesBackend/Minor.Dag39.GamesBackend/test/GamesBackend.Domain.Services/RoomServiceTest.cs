@@ -7,5 +7,8 @@ using System.Threading.Tasks;
 namespace GamesBackend.Domain.Services
 {
     [TestClass]
+    public class RoomServiceTest 
+    {
+        public void idklol() { }
     }
 }
