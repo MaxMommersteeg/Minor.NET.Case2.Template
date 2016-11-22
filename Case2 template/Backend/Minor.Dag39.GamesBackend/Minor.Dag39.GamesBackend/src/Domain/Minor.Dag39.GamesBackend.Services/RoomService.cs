@@ -7,7 +7,7 @@ using Minor.Dag39.GamesBackend.DAL.Repositories;
 using Minor.Dag39.GamesBackend.Incoming.Commands;
 using Minor.WSA.Commons;
 using Minor.WSA.EventBus.Publisher;
-using Minor.Dag39.GamesBackend.Incoming.Events;
+using Minor.Dag39.GamesBackend.Outgoing.Events;
 
 namespace Minor.Dag39.GamesBackend.Services
 {
