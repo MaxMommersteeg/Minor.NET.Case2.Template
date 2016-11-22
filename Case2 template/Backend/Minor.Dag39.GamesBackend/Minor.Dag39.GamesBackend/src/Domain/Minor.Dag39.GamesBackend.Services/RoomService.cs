@@ -20,12 +20,15 @@ namespace Minor.Dag39.GamesBackend.Services
         {
             var room = new Room() { Name = command.RoomName };
             _repository.Insert(room);
+
+            // (optional) throw StartGame event
+
             return room;
         }
 
         public void Dispose()
         {
-            _repository.Dispose();
+            _repository?.Dispose();
         }
     }
 }
