@@ -12,6 +12,7 @@
 -out:"C:\Users\Jeroen`\Source\Repos\Minor.NET.Case2.Template\Case2 template\Backend\Minor.Dag39.GamesBackend\Minor.Dag39.GamesBackend\test\GamesBackend.Domain.Services\bin\Debug\netcoreapp1.0\GamesBackend.Domain.Services.dll"
 -r:"C:\Users\Jeroen`\.nuget\packages\Castle.Core\4.0.0-beta001\lib\netstandard1.3\Castle.Core.dll"
 -r:"C:\Users\Jeroen`\.nuget\packages\dotnet-test-mstest\1.1.2-preview\lib\netcoreapp1.0\dotnet-test-mstest.dll"
+-r:"C:\Users\Jeroen`\.nuget\packages\Microsoft.CodeCoverage\1.0.2\lib\netstandard1.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll"
 -r:"C:\Users\Jeroen`\.nuget\packages\Microsoft.CSharp\4.0.1\ref\netstandard1.0\Microsoft.CSharp.dll"
 -r:"C:\Users\Jeroen`\.nuget\packages\Microsoft.DiaSymReader\1.0.8\lib\netstandard1.1\Microsoft.DiaSymReader.dll"
 -r:"C:\Users\Jeroen`\.nuget\packages\Microsoft.DotNet.Cli.Utils\1.0.0-preview2-003121\lib\netstandard1.6\Microsoft.DotNet.Cli.Utils.dll"

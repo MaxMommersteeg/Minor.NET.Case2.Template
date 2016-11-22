@@ -3,10 +3,6 @@ using Minor.Dag39.GamesBackend.Incoming.Commands;
 using Minor.Dag39.GamesBackend.Services;
 using Minor.Dag39.GamesBackend.WebApi.Controllers;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Facade.Controller.Test
 {
@@ -19,6 +15,7 @@ namespace Facade.Controller.Test
             //Arrange
             var mock = new Mock<RoomService>(MockBehavior.Strict);
             mock.Setup(x => x.StartGame(It.IsAny<CreateRoomCommand>()));
+
             var target = new RoomController(mock.Object);
 
             var command = new CreateRoomCommand();
@@ -27,7 +24,7 @@ namespace Facade.Controller.Test
             target.CreateGame(command);
 
             //Assert
-            mock.Verify(x => x.StartGame(It.IsAny<CreateRoomCommand>()), Times.Once);
+            mock.Verify(y => y.StartGame(It.IsAny<CreateRoomCommand>()), Times.Once);
         }
 
         [TestMethod]

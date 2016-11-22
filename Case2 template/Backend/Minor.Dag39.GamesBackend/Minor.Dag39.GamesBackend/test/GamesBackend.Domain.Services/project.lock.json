@@ -169,6 +169,15 @@
           "lib/netstandard1.3/Microsoft.CodeAnalysis.VisualBasic.dll": {}
         }
       },
+      "Microsoft.CodeCoverage/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -3368,6 +3377,16 @@
         "lib/netstandard1.3/Microsoft.CodeAnalysis.VisualBasic.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.VisualBasic.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.VisualBasic.xml"
+      ]
+    },
+    "Microsoft.CodeCoverage/1.0.2": {
+      "sha512": "3F7by85D2M8ksKeAw6tnWSEAij9c/VRCxzXbgVAVWv1J8tgVicfVhasSiEf7o4OnwRJBQwtZDEhmnMmCb0wh8A==",
+      "type": "package",
+      "path": "Microsoft.CodeCoverage/1.0.2",
+      "files": [
+        "Microsoft.CodeCoverage.1.0.2.nupkg.sha512",
+        "Microsoft.CodeCoverage.nuspec",
+        "lib/netstandard1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll"
       ]
     },
     "Microsoft.CSharp/4.0.1": {
@@ -9077,6 +9096,7 @@
   "projectFileDependencyGroups": {
     "": [
       "MSTest.TestFramework >= 1.0.6-preview",
+      "Microsoft.CodeCoverage >= 1.0.2",
       "Microsoft.NETCore.App >= 1.0.1",
       "Minor.Dag39.GamesBackend.DAL >= 1.0.0-*",
       "Minor.Dag39.GamesBackend.Services >= 1.0.0-*",
