@@ -8,6 +8,8 @@ namespace Minor.Dag39.GamesBackend.Incoming.Commands
 
         public DateTime Timestamp { get; set; }
 
+        public long RoomId { get; set; }
+
         public string RoomName { get; set; }
     }
 }

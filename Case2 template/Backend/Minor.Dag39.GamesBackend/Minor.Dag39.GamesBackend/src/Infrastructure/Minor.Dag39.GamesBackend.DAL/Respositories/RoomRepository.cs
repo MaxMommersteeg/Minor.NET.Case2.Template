@@ -5,7 +5,7 @@ using Minor.Dag39.GamesBackend.Infrastructure.DAL;
 namespace Minor.Dag39.GamesBackend.DAL.Repositories
 {
     public class RoomRepository
-        : BaseRepository<Room, int, GamesBackendContext>
+        : BaseRepository<Room, long, GamesBackendContext>
     {
         public RoomRepository(GamesBackendContext context) : base(context)
         {
@@ -16,7 +16,7 @@ namespace Minor.Dag39.GamesBackend.DAL.Repositories
             return _context.Games;
         }
 
-        protected override int GetKeyFrom(Room item)
+        protected override long GetKeyFrom(Room item)
         {
             return item.Id;
         }

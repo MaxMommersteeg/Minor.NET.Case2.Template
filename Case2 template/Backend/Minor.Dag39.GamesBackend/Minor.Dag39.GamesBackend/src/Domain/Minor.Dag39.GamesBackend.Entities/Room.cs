@@ -4,7 +4,7 @@ namespace Minor.Dag39.GamesBackend.Entities
 {
     public class Room
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public string Name { get; set; }
 

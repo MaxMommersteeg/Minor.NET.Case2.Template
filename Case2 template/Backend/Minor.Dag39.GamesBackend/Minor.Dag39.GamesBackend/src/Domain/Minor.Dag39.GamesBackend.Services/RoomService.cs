@@ -8,10 +8,10 @@ using Minor.Dag39.GamesBackend.Outgoing.Events;
 namespace Minor.Dag39.GamesBackend.Services {
     public class RoomService : IDisposable
     {
-        private readonly IRepository<Room, int> _repository;
+        private readonly IRepository<Room, long> _repository;
         private readonly IEventPublisher _publisher;
 
-        public RoomService(IRepository<Room, int> repository, IEventPublisher publisher)
+        public RoomService(IRepository<Room, long> repository, IEventPublisher publisher)
         {
             _repository = repository;
             _publisher = publisher;
@@ -29,9 +29,20 @@ namespace Minor.Dag39.GamesBackend.Services {
             return room;
         }
 
+        public Room EndGame(EndGameCommand endCommand)
+        {
+            var room = _repository.Find(endCommand.RoomId);
+            room.Running = false;
+            _repository.Update(room);
+
+            return room;
+        }
+
         public void Dispose()
         {
             _repository?.Dispose();
         }
+
+
     }
 }
