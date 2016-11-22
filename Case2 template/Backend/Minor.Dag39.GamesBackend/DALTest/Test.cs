@@ -130,8 +130,9 @@ namespace DALTest
 
             using (var repo = new RoomRepository(new GamesBackendContext(_options)))
             {
-                repo.Insert(new Room()
+                repo.Update(new Room()
                 {
+                    Id = 1,
                     Name = "UpdatedName"
                 });
             }
@@ -139,7 +140,7 @@ namespace DALTest
             using (var repo = new RoomRepository(new GamesBackendContext(_options)))
             {
                 Assert.AreEqual(1, repo.Count());
-                Assert.AreEqual("UpdateName", repo.Find(1).Name);
+                Assert.AreEqual("UpdatedName", repo.Find(1).Name);
             }
         }
     }
