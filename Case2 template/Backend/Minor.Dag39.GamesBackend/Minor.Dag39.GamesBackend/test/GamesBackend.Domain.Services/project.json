@@ -1,14 +1,14 @@
 ﻿{
   "version": "1.0.0-*",
-  "buildOptions": {
-    "emitEntryPoint": true
-  },
+  "testRunner": "mstest",
 
   "dependencies": {
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.1"
-    }
+    },
+    "Moq": "4.6.38-alpha",
+
   },
 
   "frameworks": {
