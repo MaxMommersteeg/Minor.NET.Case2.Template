@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+
+  db:
+    image: microsoft/mssql-server-linux
+    container_name: db
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: admin
+
+  minor.dag39.gamesbackend.webapi:
+    image: user/minor.dag39.gamesbackend.webapi${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - eventbus
+
+networks:
+  default:
+    driver: bridge
+  eventbus:
+    external:
+      name: eventbus

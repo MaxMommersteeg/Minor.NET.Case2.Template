@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+  rabbitmq:
+      image: rabbitmq:3-management
+      container_name: rabbitmq
+      environment:
+        RABBITMQ_DEFAULT_USER: guest
+        RABBITMQ_DEFAULT_PASS: guest
+      ports:
+        - "5002:15672"
+      networks:
+        - eventbus
+
+  db:
+    image: mysql
+    container_name: db
+    environment:
+      MYSQL_PASSWORD: logevents
+      MYSQL_DATABASE: logevents
+      MYSQL_USER: logevents
+      MYSQL_ROOT_PASSWORD: 12341234
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - db
+    ports:
+     - 5001:80
+
+  minor.wsa.auditlogservice:
+    image: steven166/audit-log-service:1.0.0
+    environment:
+      'ConnectionStrings:DataAccessMySqlProvider': server=db;userid=logevents;password=logevents;database=logevents;
+      'ConnectionStrings:RabbitMQ': rabbitmq
+    depends_on:
+      - db
+      - rabbitmq
+    ports:
+      - 5000:80
+    networks: 
+      - eventbus
+
+networks:
+  default:
+    driver: bridge
+  eventbus:
+    driver: bridge
+    

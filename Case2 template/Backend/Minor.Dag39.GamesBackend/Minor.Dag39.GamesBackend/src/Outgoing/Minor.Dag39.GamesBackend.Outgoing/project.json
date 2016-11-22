@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "Minor.Dag39.GamesBackend.Entities": "1.0.0-*",
+    "Minor.WSA.EventBus": "1.0.2"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}
