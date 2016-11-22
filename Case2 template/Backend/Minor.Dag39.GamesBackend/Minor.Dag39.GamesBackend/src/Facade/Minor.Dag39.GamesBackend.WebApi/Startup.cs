@@ -43,7 +43,7 @@ namespace Minor.Dag39.GamesBackend.WebApi
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddSwaggerGen();
             services.AddDbContext<GamesBackendContext>(options => options.UseSqlServer(@"Server=db;Database=GameServer;UserID=sa,Password=admin"));
-            services.AddScoped<IRepository<Room, int>, RoomRepository>();
+            services.AddScoped<IRepository<Room, long>, RoomRepository>();
             services.AddScoped<IEventPublisher, EventPublisher>(config => {
                 System.Console.WriteLine("Ding aanmaken");
                 return new EventPublisher(null);

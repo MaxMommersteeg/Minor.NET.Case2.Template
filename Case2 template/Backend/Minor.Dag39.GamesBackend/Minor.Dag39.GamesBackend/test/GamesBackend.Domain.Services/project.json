@@ -12,7 +12,8 @@
     "MSTest.TestFramework": "1.0.6-preview",
     "Minor.Dag39.GamesBackend.Services": "1.0.0-*",
     "Minor.WSA.EventBus": "1.0.2",
-    "Minor.Dag39.GamesBackend.DAL": "1.0.0-*"
+    "Minor.Dag39.GamesBackend.DAL": "1.0.0-*",
+    "Microsoft.CodeCoverage": "1.0.2"
   },
 
   "frameworks": {
