@@ -5,3 +5,9 @@
 /Minor.DagXX.XXX1/Minor.DagXX.XXX1
 *.pdb
 *.suo
+*.swp
+*.*~
+bin/
+obj/
+project.lock.json
+.DS_Store
