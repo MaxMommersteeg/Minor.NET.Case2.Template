@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Minor.Dag39.GamesBackend.DAL.Repositories;
 using Minor.Dag39.GamesBackend.DAL;
 using Minor.WSA.Commons;
-using Minor.Dag39.GamesBackend.DAL.EventBus;
 using Minor.WSA.EventBus.Config;
 using Minor.Dag39.GamesBackend.Infrastructure.DAL;
+using Minor.WSA.EventBus.Publisher;
 
 namespace Minor.Dag39.GamesBackend.WebApi
 {
@@ -44,10 +44,9 @@ namespace Minor.Dag39.GamesBackend.WebApi
             services.AddSwaggerGen();
             services.AddDbContext<GamesBackendContext>(options => options.UseSqlServer(@"Server=db;Database=GameServer;UserID=sa,Password=admin"));
             services.AddScoped<IRepository<Room, int>, RoomRepository>();
-            services.AddSingleton<EventBusConfig>();
-            services.AddSingleton<IEventPublisher, Publisher>(config => {
+            services.AddScoped<IEventPublisher, EventPublisher>(config => {
                 System.Console.WriteLine("Ding aanmaken");
-                return new Publisher(null);
+                return new EventPublisher(null);
                 });
 
             services.ConfigureSwaggerGen(options =>
