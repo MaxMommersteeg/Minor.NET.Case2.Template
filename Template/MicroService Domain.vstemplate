@@ -15,14 +15,21 @@
   <TemplateContent>
     <ProjectCollection>
       <SolutionFolder CreateOnDisk="true" Name="src">
-        <SolutionFolder CreateOnDisk="true" Name="Domain">
-          <ProjectTemplateLink ProjectName="$safeprojectname$.001 - Domain">
-            App\NetCoreConsoleApp.vstemplate
-          </ProjectTemplateLink>
+        <SolutionFolder CreateOnDisk="true" Name="001 - Domain">
+          <SolutionFolder CreateOnDisk="true" Name="Entities">
+            <ProjectTemplateLink ProjectName="$safeprojectname$.Entities">
+              App\NetCoreConsoleApp.vstemplate
+            </ProjectTemplateLink>
+          </SolutionFolder>
+          <SolutionFolder CreateOnDisk="true" Name="Services">
+            <ProjectTemplateLink ProjectName="$safeprojectname$.Services">
+              App\Entities\MyTemplate.vstemplate
+            </ProjectTemplateLink>
+          </SolutionFolder>
         </SolutionFolder>
-        <SolutionFolder CreateOnDisk="true" Name="Infrastructure">
+        <SolutionFolder CreateOnDisk="true" Name="002 - Infrastructure">
           <ProjectTemplateLink ProjectName="$safeprojectname$.002 - Infrastructure">
-            App\NetCoreConsoleApp.vstemplate
+            App\Incoming\MyTemplate.vstemplate
           </ProjectTemplateLink>
         </SolutionFolder>
         <SolutionFolder CreateOnDisk="true" Name="Facade">
@@ -30,14 +37,14 @@
             App\NetCoreConsoleApp.vstemplate
           </ProjectTemplateLink>
         </SolutionFolder>
-        <SolutionFolder CreateOnDisk="true" Name="Incoming">
-          <ProjectTemplateLink ProjectName="$safeprojectname$.004 - Incoming">
-            App\NetCoreConsoleApp.vstemplate
+        <SolutionFolder CreateOnDisk="true" Name="004 - Incoming">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.Incoming">
+            App\Incoming\MyTemplate.vstemplate
           </ProjectTemplateLink>
         </SolutionFolder>
-        <SolutionFolder CreateOnDisk="true" Name="Outgoing">
-          <ProjectTemplateLink ProjectName="$safeprojectname$.005 - Outgoing">
-            App\NetCoreConsoleApp.vstemplate
+        <SolutionFolder CreateOnDisk="true" Name="005 - Outgoing">
+          <ProjectTemplateLink ProjectName="$safeprojectname$.Outgoing">
+            App\Outgoing.MyTemplate.vstemplate
           </ProjectTemplateLink>
         </SolutionFolder>
       </SolutionFolder>
@@ -49,7 +56,7 @@
         </SolutionFolder>
         <SolutionFolder CreateOnDisk="true" Name="Infrastructure.Test">
           <ProjectTemplateLink ProjectName="$safeprojectname$.002 - Infrastructure.Test">
-            Test\NetCoreConsoleApp.vstemplate
+            Test\DALTest\MyTemplate.vstemplate
           </ProjectTemplateLink>
         </SolutionFolder>
         <SolutionFolder CreateOnDisk="true" Name="Facade.Test">
