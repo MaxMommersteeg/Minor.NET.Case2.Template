@@ -24,9 +24,9 @@ namespace Minor.Dag39.GamesBackend.Infrastructure.DAL
             base.OnModelCreating(modelBuilder);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
         {
-          if(!optionsBuilder.IsConfigured)
+            if (!optionsBuilder.IsConfigured) 
             {
                 optionsBuilder.UseSqlServer(@"Server=db;Database=GameServer;UserID=sa,Password=admin");
             }
