@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.Swagger.Model;
+using Microsoft.EntityFrameworkCore;
+using Minor.DagXX.XXX1.DAL.DatabaseContexts;
+using Minor.DagXX.XXX1.DAL.DAL;
+using Minor.DagXX.XXX1.Entities.Entities;
 
 namespace Minor.DagXX.XXX1.WebApi
 {
@@ -39,7 +43,7 @@ namespace Minor.DagXX.XXX1.WebApi
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddSwaggerGen();
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=DATABASENAME;Trusted_Connection=True;"));
-            services.AddScoped<IRepository<Monument, int>, MonumentRepository>();
+            services.AddScoped<IRepository<Entity, int>, EntityRepository>();
             services.ConfigureSwaggerGen(options =>
             {
                 options.SingleApiVersion(new Info

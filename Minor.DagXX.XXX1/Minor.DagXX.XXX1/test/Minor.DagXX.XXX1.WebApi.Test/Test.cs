@@ -69,7 +69,7 @@ namespace Minor.DagXX.XXX1.WebApi.Test
         }
 
         [TestMethod]
-        public void ValuesDeletTest()
+        public void EntitiesDeletTest()
         {
             using (var repo = new RepositoryMock())
             {

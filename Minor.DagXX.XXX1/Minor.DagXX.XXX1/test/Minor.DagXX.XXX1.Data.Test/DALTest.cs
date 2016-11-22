@@ -41,7 +41,6 @@ namespace Minor.DagXX.XXX1.Data.Test
         [TestMethod]
         public void TestAdd()
         {
-
             using (var repo = new EntityRepository(new DatabaseContext(_options)))
             {
                 repo.Insert(new Entity()
@@ -50,10 +49,10 @@ namespace Minor.DagXX.XXX1.Data.Test
                 });
             }
 
-
             using (var repo = new EntityRepository(new DatabaseContext(_options)))
             {
                 Assert.AreEqual(1, repo.Count());
+                Assert.AreEqual("Naam", repo.Find(1).Name);
             }
         }
 
@@ -113,6 +112,35 @@ namespace Minor.DagXX.XXX1.Data.Test
             using (var repo = new EntityRepository(new DatabaseContext(_options)))
             {
                 Assert.AreEqual(2, repo.Count());
+            }
+        }
+
+        [TestMethod]
+        public void TestUpdate()
+        {
+
+            using (var repo = new EntityRepository(new DatabaseContext(_options)))
+            {
+                repo.Insert(new Entity()
+                {
+                    Name = "Naam"
+                });
+            }
+
+            using (var repo = new EntityRepository(new DatabaseContext(_options)))
+            {
+                repo.Update(new Entity()
+                {
+                    Id = 1,
+                    Name = "Aangepast"
+                });
+            }
+
+
+            using (var repo = new EntityRepository(new DatabaseContext(_options)))
+            {
+                Assert.AreEqual(1, repo.Count());
+                Assert.AreEqual("Aangepast", repo.Find(1).Name);
             }
         }
     }
