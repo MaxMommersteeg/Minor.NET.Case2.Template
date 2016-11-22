@@ -3,4 +3,5 @@
 ################################################################################
 
 /Minor.DagXX.XXX1/Minor.DagXX.XXX1
-/Minor.DagXX.XXX1/.vs/Minor.DagXX.XXX1/v14/.suo
+*.pdb
+*.suo
