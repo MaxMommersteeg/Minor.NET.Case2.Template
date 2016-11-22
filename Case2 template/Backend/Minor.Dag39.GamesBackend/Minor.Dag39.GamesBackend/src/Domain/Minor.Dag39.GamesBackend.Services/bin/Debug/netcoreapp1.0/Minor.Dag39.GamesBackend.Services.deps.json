@@ -389,6 +389,9 @@
         }
       },
       "Minor.Dag39.GamesBackend.Incoming/1.0.0": {
+        "dependencies": {
+          "Minor.WSA.EventBus": "1.0.2"
+        },
         "runtime": {
           "Minor.Dag39.GamesBackend.Incoming.dll": {}
         }
